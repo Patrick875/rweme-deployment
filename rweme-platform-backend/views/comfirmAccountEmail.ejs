@@ -1,0 +1,38 @@
+<html>
+	<style lang="css">
+		p {
+			margin-block: 1em;
+			font-size: 1em;
+		}
+		.email-container {
+			width: 100%;
+			margin: 0 auto;
+			padding: 4px;
+		}
+		.verificationcode {
+			font-weight: bold;
+			font-size: 1.25em;
+		}
+	</style>
+	<body>
+		<div class="email-container">
+			<h3>Dear <%= fullName %>,</h3>
+			<p>Congratulations! Your account has been successfully created with RWEME Platform.</p>
+			<p>
+				Please verify your email address by entering code:
+				<span style="font-weight: bold; font-size: 1.25rem" class="verificationcode"><%= verificationCode %></span> on the page that will open after
+				clicking the link below.
+			</p>
+			<p>
+				<a href="http://localhost:5173/comfirm-account?email=<%= email %>">Comfirm your account</a>
+			</p>
+			<p>If you didn't request this, please ignore this email.</p>
+			<hr />
+			<p>Sincerely</p>
+			<p>RWEME Platform</p>
+			<p>
+				<a href="#">rweme@gmail.com</a>
+			</p>
+		</div>
+	</body>
+</html>

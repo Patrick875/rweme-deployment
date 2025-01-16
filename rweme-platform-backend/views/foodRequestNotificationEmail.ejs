@@ -1,0 +1,34 @@
+<html>
+	<style lang="css">
+		p {
+			margin-block: 1em;
+			font-size: 1em;
+		}
+		.email-container {
+			width: 100%;
+			margin: 0 auto;
+			padding: 4px;
+		}
+		.verificationcode {
+			font-weight: bold;
+			font-size: 1.25em;
+		}
+	</style>
+	<body>
+		<div class="email-container">
+			<h3>Dear <%= fullName %>,</h3>
+			<p>You have received a new food request.</p>
+			<p></p>
+			<p>
+				For more details please
+				<a href="http://localhost:5173/login">Login</a>
+			</p>
+			<hr />
+			<p>Sincerely</p>
+			<p>RWEME Platform</p>
+			<p>
+				<a href="#">rweme@gmail.com</a>
+			</p>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,41 @@
+version: "3.9"
+services:
+  backend:
+    build:
+      context: ./rweme-platform-backend
+      ports:
+        - "5000:5000"
+      environment:
+        - DEV_PORT=5000
+        - database-development=rweme
+        - ADMIN_PASSWORD="Admin@2024"
+        - JWT_SECRET=suppersecretandimplessivejwtsecret2025
+        - SYSTEM_EMAIL="kubwimanapatrick@gmail.com"
+        - SYSTEM_EMAIL_PASSWORD="loygfmiulyxmjoau"
+        - PINDO_TOKEN='eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE4MjY2MjI3MDcsImlhdCI6MTczMjAxNDcwNywiaWQiOiJ1c2VyXzAxSjRITkI3Vjc3QlEyOUNZWVpNQjlISzcxIiwicmV2b2tlZF90b2tlbl9jb3VudCI6MH0.pHwCoULm5vJtnoLx65Aka1K0lQgy_VcvBhx1M2shpZz_7ppdid_OJD7pd-fH87FXd-DYnhx_n05qhrLYAYJktA'
+        - CLOUDINARY_CLOUD_NAME="didikwl4i"
+        - CLOUDINARY_API_KEY="341534434742523"
+        - CLOUDINARY_API_SECRET="Qs9-RFkMCgFmZrJ0cg2Ib4q7pRA"
+      depends_on:
+        - postgres
+      
+    ui:
+      build:
+        context: ./rweme-ui
+        ports:
+          - "3000:80"
+    postgres:
+      image: postgres:14
+
+      environment:
+        POSTGRES_USER: "postgres"
+        POSTGRES_PASSWORD: "password"
+        POSTGRES_DB: rweme
+      
+      ports:
+        - "5432:5432"
+      
+      volumes:
+        - postgres_data:/var/lib/postgresql/data
+volumes:
+  postgres_data

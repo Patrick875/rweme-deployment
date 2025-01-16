@@ -1,0 +1,112 @@
+.auth-container {
+    margin: 0;
+    width: 100%;
+    max-height: 100vh;
+    display: flex;
+    font-family: avenir-book;
+    position: relative;
+
+    @media (max-width: 768px) {
+        margin: 0;
+        display: block;
+    }
+
+    .auth-form-container {
+        width: 50%;
+        margin: 0;
+
+        @media (max-width: 768px) {
+            width: 100%;
+        }
+    }
+}
+
+.auth-form {
+    width: 100%;
+}
+
+.auth-backg {
+    position: relative;
+    margin: 0;
+    width: 50%;
+    height: 100vh;
+
+    img {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    @media (max-width: 800px) {
+        position: absolute;
+        height: 20vh;
+        width: 100%;
+        z-index: -1;
+    }
+}
+
+.auth-backg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(28, 130, 23, 0.68);
+    z-index: 999;
+}
+
+.auth-form-container {
+    .auth-form {
+        padding-block: 2.4em;
+        width: 80%;
+        margin-inline: auto;
+    }
+
+    .auth-form-header--text {
+        margin-block: 0;
+        font-size: 1.4rem;
+        font-weight: bold;
+    }
+
+    .auth-text {
+        margin-block: 1em;
+    }
+
+    .forgot-password-text {
+        margin-block: 0.05em;
+        display: inline-block;
+        color: black;
+        text-align: right;
+        text-decoration: underline;
+        padding-bottom: 1em;
+    }
+
+    .auth-btn {
+        width: 100%;
+        height: 3em;
+        background-color: rgba(28, 130, 23, 0.68);
+        color: white;
+        outline: none;
+        border: none;
+
+        &:hover {
+            background-color: rgba(28, 130, 23, 1);
+            color: white;
+        }
+    }
+
+    // :deep {
+    //     .ant-input {
+    //         height: 2.5rem;
+    //     }
+    // }
+}
+.logo-container {
+    cursor: pointer;
+    @media (max-width: 800px) {
+        display: flex;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,60 @@
+.layout {
+    display: flex;
+}
+.sidenavbar {
+    position: relative;
+}
+.sidebar {
+    position: relative;
+    width: 250px;
+    height: 100vh;
+    background-color: white;
+
+    .logo {
+        background-color: white;
+    }
+
+    :deep {
+        .ant-menu-light {
+            background-color: transparent;
+            height: 100%;
+        }
+        .ant-menu-item-selected {
+            background-color: rgba(28, 130, 23, 0.68);
+            color: white;
+        }
+    }
+    @media (max-width: 800px) {
+        position: absolute;
+        background-color: white;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1000;
+    }
+}
+
+.sidelogo-container {
+    margin-block: 0;
+    img {
+        height: 100px;
+    }
+    @media (max-width: 800px) {
+        padding-right: 1.5em;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+.page-container {
+    padding: 1em;
+    height: 90vh;
+    overflow-y: auto;
+}
+
+.main-content {
+    overflow-y: auto;
+    flex: 1;
+    font-family: avenir-book;
+    background-color: #f6f8f9;
+}

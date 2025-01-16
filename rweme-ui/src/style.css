@@ -1,0 +1,15 @@
+:root {
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+}
+html {
+	margin: 0;
+	overflow-y: hidden;
+}
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}

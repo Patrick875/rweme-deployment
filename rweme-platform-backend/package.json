@@ -1,0 +1,59 @@
+{
+	"name": "rweme-platform-backend",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"build": "babel . -d dist",
+		"start": "npm index.js",
+		"prod": "node dist/index.js",
+		"devStart": "nodemon index.js",
+		"db:seed":"sequelize-cli db:seed:all",
+		"db:migrate":"sequelize-cli db:migrate",
+		"db:migrate_prod": "cross-env NODE_ENV=production sequelize-cli db:migrate",
+		"db:seed_prod": "cross-env NODE_ENV=production sequelize-cli db:seed:all",
+		"prodStart": "cross-env NODE_ENV=production node index.js"
+	},
+	"keywords": [
+		"nodejs",
+		"expressjs",
+		"postgresql",
+		"sequelize",
+		"farm-management-system"
+	],
+	"author": "Patrick875",
+	"license": "ISC",
+	"dependencies": {
+		"@babel/cli": "^7.26.4",
+		"@babel/core": "^7.26.0",
+		"@babel/preset-env": "^7.26.0",
+		"@sequelize/postgres": "^7.0.0-alpha.43",
+		"axios": "^1.7.7",
+		"bcrypt": "^5.1.1",
+		"cloudinary": "^2.5.1",
+		"compression": "^1.7.5",
+		"cookie-parser": "^1.4.7",
+		"cors": "^2.8.5",
+		"cross-env": "^7.0.3",
+		"dotenv": "^16.4.5",
+		"ejs": "^3.1.10",
+		"express": "^4.21.1",
+		"express-validator": "^7.2.1",
+		"jsonwebtoken": "^9.0.2",
+		"juice": "^11.0.0",
+		"morgan": "^1.10.0",
+		"node-cron-tz": "^2.0.4",
+		"nodemailer": "^6.9.16",
+		"pdfkit": "^0.15.2",
+		"puppeteer": "^23.11.1",
+		"sequelize": "^6.37.5",
+		"sequelize-cli": "^6.6.2",
+		"stream-buffers": "^3.0.3",
+		"swagger-jsdoc": "^6.2.8",
+		"swagger-ui-express": "^5.0.1",
+		"uuid": "^11.0.3"
+	},
+	"devDependencies": {
+		"nodemon": "^3.1.7"
+	}
+}

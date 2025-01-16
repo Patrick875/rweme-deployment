@@ -1,0 +1,103 @@
+<html>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			font-size: 1em;
+			padding: 0;
+		}
+		#contract-container {
+			margin: 96px;
+		}
+		#contract-logo {
+			width: 150px;
+			height: 150px;
+			object-fit: cover;
+		}
+		#contract-title {
+			text-align: center;
+			font-size: 1.5em;
+			font-weight: bold;
+			margin-bottom: 25px;
+		}
+
+		.farmerInfo {
+			font-weight: bold;
+		}
+
+		.signature {
+			display: flex;
+			justify-content: space-between;
+		}
+	</style>
+
+	<body>
+		<img id="contract-logo" src="<%= baseURL %>/rweme_logo.png" />
+		<div id="contract-container">
+			<p id="contract-title">AMAZERANO YO GUTANGA IBIRYO BY INKOKO</p>
+			<p>Hagati ya NZANANA Ishimwe Diane n' umworozi <span class="farmerInfo"> <%= farmer?.fullName %> </span></p>
+			<p>Itariki ya <span class="farmerInfo"><%= new Date().toLocaleDateString('fr-FR') %> </span></p>
+			<p>Abafatanyabikorwa</p>
+			<p>
+				1. NZANANA Ishimwe Diane ("Utanza ibiryo"), uherereye mu karere ka BUGESERA, Umurenge wa Ntarama akaba agamije gufasha aborozi b' inkoko
+				kwiteza imbere no kongera umusaruro.
+			</p>
+			<p>
+				2. Umworozi ("Uhawe ibiryo"), witwa <span class="farmerInfo"><%=farmer.fullName %></span> ufite nimero y indangamuntu
+				<span class="farmerInfo"><%=farmer.nationalId %> </span> na telephone <span class="farmerInfo"><%=farmer?.telephone %> </span> aherereye mu
+				karere ka
+				<span class="farmerInfo"> <%=farmer.Village.District.name %> </span>
+				umurenge wa
+				<span class="farmerInfo"><%=farmer.Village.sector.name %> </span>
+				akagari ka
+				<span class="farmerInfo"><%=farmer.Village.Cell.name %> </span> umudugudu <span class="farmerInfo"> <%=farmer.Village.name %> </span> Ufite
+				inkoko <span class="farmerInfo"><%=farmer.numberOfChicken %> </span> z' ubwoko bwa
+				<span class="farmerInfo"> <%=farmer.typeOfChicken %> </span>
+			</p>
+			<p>1. IMIKORANIRE :</p>
+			<p>
+				NZANANAIshimwe Diane azagurira Uwemera inguzanyo y' ibiryo by'inkoko, Uwemera inguzanyo agomba kwishyura NZANANA Ishimwe Diane amafaranga
+				angana n'igiciro cy' ibiryo byatanzwe hongeweho inyungu ya 10% kuri buri kirogarama (kg).
+			</p>
+			<p>2.Ibisobanuro by'Inguzanyo:</p>
+			<p>
+				Uburemere bw'Ibiryo: <span><%=farmer.amountOfFeedToBeDelivered %> </span> kg, Igiciro cya buri kg :
+				<span class="farmerInfo"><%=farmer.priceOfFeedToBeDelivered %></span>rwf , Inyungu 10% :
+				<span class="farmerInfo"><%=(Number(farmer.totalAmountToBePaid) * 10) / 100 %> </span> , Umubare wose uzishyurwa:<span class="farmerInfo">
+					<%=(Number(farmer.totalAmountToBePaid) * 10) / 100 + Number(farmer.totalAmountToBePaid) %>
+				</span>
+			</p>
+			<% if(farmer?.typeOfChicken.toUpperCase() == 'LAYER') { %>
+			<p>
+				Kwishyura inguzanyo buri byumweru bibiri bibiri icyakabiri cy' inguzanyo binyujijwe kuri MOMOcode…708926……Yanditse kuri Jacque., Itariki
+				y'ikiciro cya mbere:
+				<span class="farmerInfo"><%=new Date(farmer.firstInstallmentAt).toLocaleDateString('fr-FR') %> </span>
+				, Itariki y'ikiciro cya kabiri:
+				<span class="farmerInfo"> <%= new Date(farmer.secondInstallmentAt).toLocaleDateString('fr-FR') %> </span>
+				.
+			</p>
+			<% } else { %>
+			<p>
+				Kwishyura inguzanyo buri kwezi inguzanyo yose binyujijwe kuri MOMOcode…708926……Yanditse kuri Jacque., Itariki ya mbere yo kwishyura ni:
+				<span class="farmerInfo"><%=new Date(farmer.firstInstallmentAt).toLocaleDateString('fr-FR') %> </span>
+			</p>
+			<% } %>
+			<p>1. Umwishingizi</p>
+			<p>
+				Amazina: <span class="farmerInfo"><%= farmer.nextOfKin.fullName %> </span>, Nimero y'indangamuntu:
+				<span class="farmerInfo"><%=farmer.nextOfKin.nationalId %> </span>
+				Isano bafitanye: <span class="farmerInfo"><%=farmer.nextOfKin.relation %> </span> Umukono: ______________________
+			</p>
+			<div class="signature">
+				<div>
+					<p>6. Gusinya:</p>
+					<p>NZANANA Ishimwe Diane</p>
+					<p>Umukono:</p>
+				</div>
+				<div>
+					<p>Amazina y' Umworozi : <span class="farmerInfo"><%=farmer?.fullName %> </span></p>
+					<p>Umukono:</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
